@@ -8,6 +8,10 @@ Table.prototype.insert = function(record) {
   this.dropbox[this.name].push(record);
 }
 
+Table.prototype.query = function() {
+  return this.dropbox[this.name] || [];
+}
+
 Table.prototype.toString = function() {
   return 'FakeDropbox.Table';
 }
