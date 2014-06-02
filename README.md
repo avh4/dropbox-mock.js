@@ -15,13 +15,13 @@ global.Dropbox.allowAppKey('FAKE-KEY-FOR-TEST');
 
 When creating the Dropbox Client in test, you need to use the same app key that you allowed in the global test setup above.
 
-```
+```javascript
 new Dropbox.Client({key: 'FAKE-KEY-FOR-TEST'});
 ```
 
 After exercising code that should have created records, you can inspect the fake Dropbox datastore:
 
-```
+```javascript
 global.Dropbox['MyTable']; // => yields the stored object
 ```
 
