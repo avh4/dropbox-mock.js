@@ -1,6 +1,6 @@
 {
   "name": "dropbox-mock",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Test double for Dropbox API",
   "main": "index.js",
   "scripts": {
