@@ -35,11 +35,30 @@ global.Dropbox['MyTable']; // => yields the stored object
  - `DatatstoreManager.openDefaultDatastore(callback)`
  - `Datastore.getTable(name)`
  - `Datastore.recordsChanged.addListener(callback)` (must be manually triggered by your test)
+ - `Table.query()` (no params)
  - `Table.insert(record)`
 
 Pull requests are welcome.
 
 ## Examples
+
+### Table.query()
+
+```javascript
+global.Dropbox = new (require('dropbox-mock'))();
+global.Dropbox.allowAppKey('FAKE-KEY-FOR-TEST');
+global.Dropbox['MyTable'] = [ { name: "Record 1", value: 1 } ];
+// call subject method that queries MyTable
+```
+
+### Table.insert(record)
+
+```javascript
+global.Dropbox = new (require('dropbox-mock'))();
+global.Dropbox.allowAppKey('FAKE-KEY-FOR-TEST');
+// call subject method that should insert records
+expect(global.Dropbox['MyTable']).to.equal(expectedRecords);
+```
 
 ### Datastore.recordsChanged.addListener(callback)
 
