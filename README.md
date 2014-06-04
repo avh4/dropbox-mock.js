@@ -1,3 +1,4 @@
+[![Build Status](https://secure.travis-ci.org/avh4/dropbox-mock.js.svg)](http://travis-ci.org/avh4/dropbox-mock.js)
 [![Stability: 2 - unstable](http://img.shields.io/badge/stability-unstable-yellow.svg)](http://nodejs.org/api/documentation.html#documentation_stability_index)
 
 ## Usage
