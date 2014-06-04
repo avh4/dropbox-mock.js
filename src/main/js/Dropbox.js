@@ -3,6 +3,7 @@ var Client = require('./Client');
 function FakeDropbox() {
   this.validAppKeys = {};
   this.authenticated = false;
+  this.recordsChangedListeners = [];
   var thisDropbox = this;
 
   function _Client(options) {
@@ -14,6 +15,12 @@ function FakeDropbox() {
 
 FakeDropbox.prototype.allowAppKey = function(key) {
   this.validAppKeys[key] = true;
+}
+
+FakeDropbox.prototype.triggerRecordsChanged = function() {
+  this.recordsChangedListeners.forEach(function(listener) {
+    listener();
+  });
 }
 
 FakeDropbox.prototype.toString = function() {

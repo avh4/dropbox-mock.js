@@ -4,7 +4,7 @@
   "description": "Test double for Dropbox API",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha src/test/js"
   },
   "repository": {
     "type": "git",
@@ -18,5 +18,11 @@
   "bugs": {
     "url": "https://github.com/avh4/dropbox-mock.js/issues"
   },
-  "homepage": "https://github.com/avh4/dropbox-mock.js"
+  "homepage": "https://github.com/avh4/dropbox-mock.js",
+  "devDependencies": {
+    "mocha": "^1.20.0",
+    "sinon": "^1.10.2",
+    "chai": "^1.9.1",
+    "sinon-chai": "^2.5.0"
+  }
 }
