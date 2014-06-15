@@ -1,3 +1,5 @@
+var Record = require('./Record');
+
 function Table(dropbox, name) {
   this.dropbox = dropbox;
   this.name = name;
@@ -9,7 +11,9 @@ Table.prototype.insert = function(record) {
 }
 
 Table.prototype.query = function() {
-  return this.dropbox[this.name] || [];
+  return (this.dropbox[this.name] || []).map(function(data) {
+    return new Record(data);
+  });
 }
 
 Table.prototype.toString = function() {

@@ -26,4 +26,12 @@ describe('Datastore', function() {
       expect(callback).to.have.been.called;
     });
   });
+
+  describe('Record.get', function() {
+    it('reads values from the mock data', function() {
+      Dropbox['MyTable'] = [{name: 'Ronald Reagan'}];
+      var record = datastore.getTable('MyTable').query()[0];
+      expect(record.get('name')).to.equal('Ronald Reagan');
+    });
+  });
 });
