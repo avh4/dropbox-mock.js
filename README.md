@@ -37,6 +37,8 @@ global.Dropbox['MyTable']; // => yields the stored object
  - `Datastore.recordsChanged.addListener(callback)` (must be manually triggered by your test)
  - `Table.query()` (no params)
  - `Table.insert(record)`
+ - `Record.get(fieldName)`
+ - `Record.deleteRecord()`
 
 Pull requests are welcome.
 

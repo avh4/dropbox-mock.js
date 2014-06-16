@@ -34,4 +34,13 @@ describe('Datastore', function() {
       expect(record.get('name')).to.equal('Ronald Reagan');
     });
   });
+
+  describe('Record.deleteRecord', function() {
+    it('removes the record from the mock data', function() {
+      Dropbox['MyTable'] = [{name: 'Ronald Reagan'}, {name: 'Donald Duck'}];
+      var record = datastore.getTable('MyTable').query()[1];
+      record.deleteRecord();
+      expect(Dropbox['MyTable']).to.eql([{name: 'Ronald Reagan'}]);
+    });
+  });
 });

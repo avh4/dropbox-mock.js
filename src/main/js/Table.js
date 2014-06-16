@@ -11,9 +11,9 @@ Table.prototype.insert = function(record) {
 }
 
 Table.prototype.query = function() {
-  return (this.dropbox[this.name] || []).map(function(data) {
-    return new Record(data);
-  });
+  return (this.dropbox[this.name] || []).map(function(data, i) {
+    return new Record(this.dropbox, this.name, data, i);
+  }, this);
 }
 
 Table.prototype.toString = function() {
