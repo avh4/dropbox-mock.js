@@ -43,4 +43,12 @@ describe('Datastore', function() {
       expect(Dropbox['MyTable']).to.eql([{name: 'Ronald Reagan'}]);
     });
   });
+
+  describe('Table.insert', function() {
+    it('sets a unique id', function() {
+      datastore.getTable('MyTable').insert({name: 'Jackie Chan'});
+      var record = datastore.getTable('MyTable').query()[0];
+      expect(record.getId()).to.be.a('string');
+    });
+  });
 });

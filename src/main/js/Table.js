@@ -1,5 +1,7 @@
 var Record = require('./Record');
 
+var nextId = 0;
+
 function Table(dropbox, name) {
   this.dropbox = dropbox;
   this.name = name;
@@ -7,6 +9,7 @@ function Table(dropbox, name) {
 
 Table.prototype.insert = function(record) {
   if (!this.dropbox[this.name]) this.dropbox[this.name] = [];
+  record.id = (nextId++).toString();
   this.dropbox[this.name].push(record);
 }
 

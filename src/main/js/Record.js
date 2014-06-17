@@ -13,6 +13,10 @@ Record.prototype.deleteRecord = function() {
   this.dropbox[this.tableName].splice(this.index, 1);
 }
 
+Record.prototype.getId = function() {
+  return this.data.id;
+}
+
 Record.prototype.toString = function() {
   return 'FakeDropbox.Record' + this.data;
 }

@@ -39,6 +39,7 @@ global.Dropbox['MyTable']; // => yields the stored object
  - `Table.insert(record)`
  - `Record.get(fieldName)`
  - `Record.deleteRecord()`
+ - `Record.getId()`
 
 Pull requests are welcome.
 
