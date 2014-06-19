@@ -62,6 +62,15 @@ describe('Datastore', function() {
     });
   });
 
+  describe('Table.get', function() {
+    it('gets record by unique id', function() {
+      var createdRecord = datastore.getTable('MyTable').insert({name: 'Jackie Chan'});
+      var record = datastore.getTable('MyTable').get(createdRecord.id);
+      expect(record.getId()).to.be.a('string');
+      expect(record.get('name')).to.equal('Jackie Chan');
+    });
+  });
+
   describe('Table.query', function() {
     var tableData = [{
       name: 'Jackie Chan', strength: 50
