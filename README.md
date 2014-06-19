@@ -40,6 +40,7 @@ global.Dropbox['MyTable']; // => yields the stored object
  - `Record.get(fieldName)`
  - `Record.deleteRecord()`
  - `Record.getId()`
+ - `Record.update()`
 
 Pull requests are welcome.
 

@@ -65,7 +65,7 @@ describe('Datastore', function() {
   describe('Table.get', function() {
     it('gets record by unique id', function() {
       var createdRecord = datastore.getTable('MyTable').insert({name: 'Jackie Chan'});
-      var record = datastore.getTable('MyTable').get(createdRecord.id);
+      var record = datastore.getTable('MyTable').get(createdRecord.getId());
       expect(record.getId()).to.be.a('string');
       expect(record.get('name')).to.equal('Jackie Chan');
     });
