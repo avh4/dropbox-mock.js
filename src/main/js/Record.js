@@ -17,6 +17,13 @@ Record.prototype.getId = function() {
   return this.data.id;
 }
 
+Record.prototype.update = function(newData) {
+  var originalData = this.data;
+  for (var attrname in newData) {
+    originalData[attrname] = newData[attrname];
+  }
+}
+
 Record.prototype.toString = function() {
   return 'FakeDropbox.Record' + this.data;
 }
