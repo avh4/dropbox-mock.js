@@ -18,9 +18,8 @@ Record.prototype.getId = function() {
 }
 
 Record.prototype.update = function(newData) {
-  var originalData = this.data;
   for (var attrname in newData) {
-    originalData[attrname] = newData[attrname];
+    this.data[attrname] = newData[attrname];
   }
 }
 
