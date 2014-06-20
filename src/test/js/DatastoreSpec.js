@@ -61,4 +61,26 @@ describe('Datastore', function() {
       expect(record.getId()).to.be.a('string');
     });
   });
+
+  describe('Table.query', function() {
+    var tableData = [{
+      name: 'Jackie Chan', strength: 50
+    }, {
+      name: 'Bruce Lee', strength: 66
+    }];
+
+    it('queries all records', function() {
+      Dropbox['MyTable'] = tableData;
+      var records = datastore.getTable('MyTable').query();
+      expect(records.length).to.equal(2);
+    });
+
+    it('queries with given properties', function() {
+      Dropbox['MyTable'] = tableData;
+      var records = datastore.getTable('MyTable').query({strength: 66});
+      expect(records.length).to.equal(1);
+      expect(records[0].get('name')).to.equal('Bruce Lee');
+    });
+  });
+
 });
