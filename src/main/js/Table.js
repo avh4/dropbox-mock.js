@@ -7,10 +7,21 @@ function Table(dropbox, name) {
   this.name = name;
 }
 
-Table.prototype.insert = function(record) {
+Table.prototype.get = function(recordId) {
+  var all = this.dropbox[this.name] || [];
+  for (var i = all.length - 1; i >= 0; i--) {
+    var recordData = all[i];
+    if (recordData.id === recordId) {
+      return new Record(this.dropbox, this.name, recordData, i);
+    }
+  }
+}
+
+Table.prototype.insert = function(recordData) {
   if (!this.dropbox[this.name]) this.dropbox[this.name] = [];
-  record.id = (nextId++).toString();
-  this.dropbox[this.name].push(record);
+  recordData.id = (nextId++).toString();
+  this.dropbox[this.name].push(recordData);
+  return new Record(this.dropbox, this.name, recordData, this.dropbox[this.name].length-1);
 }
 
 Table.prototype.query = function(fieldValues) {
