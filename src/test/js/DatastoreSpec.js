@@ -62,6 +62,14 @@ describe('Datastore', function() {
     });
   });
 
+  describe('Table.insert', function() {
+    it('set with custom id', function() {
+      datastore.getTable('MyTable').insert({id: 12345, name: 'Dolan Pls'});
+      var record = datastore.getTable('MyTable').query()[0];
+      expect(record.getId()).to.equal(12345);
+    });
+  });
+
   describe('Table.get', function() {
     it('gets record by unique id', function() {
       var createdRecord = datastore.getTable('MyTable').insert({name: 'Jackie Chan'});
