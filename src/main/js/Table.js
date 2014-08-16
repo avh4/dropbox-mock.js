@@ -19,7 +19,8 @@ Table.prototype.get = function(recordId) {
 
 Table.prototype.insert = function(recordData) {
   if (!this.dropbox[this.name]) this.dropbox[this.name] = [];
-  recordData.id = (nextId++).toString();
+  recordData.id = recordData.id || nextId.toString();
+  nextId++;
   this.dropbox[this.name].push(recordData);
   return new Record(this.dropbox, this.name, recordData, this.dropbox[this.name].length-1);
 }
